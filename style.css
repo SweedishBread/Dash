@@ -114,7 +114,14 @@ h1 {
     /* Add styles as needed */
 }
 
-.command-embed {
+/* Styles for the moderation commands */
+#moderation-commands {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#moderation-commands .command-embed {
+    flex: 1 0 200px;
     background-color: #333;
     color: #fff;
     padding: 15px;
@@ -124,22 +131,15 @@ h1 {
     transition: background-color 0.3s;
 }
 
-.command-embed h2 {
+#moderation-commands .command-embed h2 {
     font-size: 18px;
     margin-bottom: 10px;
 }
 
-.command-embed p {
+#moderation-commands .command-embed p {
     font-size: 14px;
     line-height: 1.3;
     margin-bottom: 8px;
-}
-
-/* Styles for the loading message */
-.commands-loading {
-    text-align: center;
-    margin-top: 20px;
-    color: #fff;
 }
 
 .module-content {
