@@ -143,37 +143,5 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Fetch commands from commands.json
-            fetch("commands.json")
-                .then(response => response.json())
-                .then(commands => displayCommands(commands))
-                .catch(error => console.error("Error fetching commands:", error));
-
-            function displayCommands(commands) {
-                const commandsContainer = document.getElementById("moderation-commands");
-
-                // Clear existing content
-                commandsContainer.innerHTML = "";
-
-                // Display each command
-                commands.forEach(command => {
-                    const commandEmbed = document.createElement("div");
-                    commandEmbed.className = "command-embed";
-                    commandEmbed.innerHTML = `
-                        <h2>${command.name}</h2>
-                        <p>Description: ${command.description}</p>
-                        <p>Usage: <code>${command.usage}</code></p>
-                        <p>Example: <code>${command.example}</code></p>
-                    `;
-                    commandsContainer.appendChild(commandEmbed);
-                });
-
-                // Show the commands container
-                commandsContainer.style.display = "block";
-            }
-        });
-    </script>
 </body>
 </html>
