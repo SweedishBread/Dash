@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bot Dashboard</title>
+</head>
+<body>
+    <div class="header">
+        <img src="assets/C_5.png" alt="Logo">
+        <h1>Ence Dashboard</h1>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="module" data-target="premium">
+                <img src="assets/Premium.png" alt="module 1">
+                <span>Premium</span>
+            </div>
+            <div class="module" data-target="home">
+                <img src="assets/Home.png" alt="Module 2">
+                <span>Home</span>
+            </div>
+
+            <div class="module" data-target="moderation">
+                <img src="assets/Moderation.png" alt="Module 3">
+                <span>Moderation</span>
+            </div>
+
+            <style>
+                .module {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .module span {
+                    margin-right: 60px; /* Adjust the spacing as needed */
+                }
+            </style>
+          
+            <div class="module" data-target="modmail">
+                <img src="assets/Modmail (2).png" alt="Modmail (2) Logo">
+                <span>Modmail</span>
+                <img src="assets/Premium Module.png" alt="Premium Module Logo">
+            </div>
+
+            <div class="module" data-target="ticket">
+                <img src="assets/Ticket.png" alt="Module 4">
+                <span>Tickets</span>
+            </div>
+
+            <div class="module" data-target="verification">
+                <img src="assets/Verification.png" alt="Module 5">
+                <span>Verification</span>
+            </div>
+
+            <div class="module" data-target="auto-role">
+                <img src="assets/Autorole.png" alt="Module 6">
+                <span>Autorole</span>
+            <img src="assets/Premium Module.png" alt="Premium Module Logo">
+            </div>
+
+            <div class="module" data-target="giveaways">
+                <img src="assets/Giveaway.png" alt="Module 7">
+                <span>Giveaways</span>
+            </div>
+
+            <!-- Support button with text and logo -->
+            <button class="module support-button" data-target="support">
+                <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6ca814282eca7172c6_icon_clyde_white_RGB.svg" alt="Support Image">
+                <span>Support</span>
+            </button>
+
+            <!-- Add more modules as needed -->
+        </div>
+
+        <div class="content">
+          <div id="premium-content" class="module-content premium-content">
+              <div class="premium-header">
+                  <h2>Welcome to Premium</h2>
+                  <p class="slogan">Unlock Exclusive Features and Benefits</p>
+              </div>
+              <div class="price-card">
+                  <h3>Premium Plan</h3>
+                  <p class="price">$9.99/month</p>
+                  <div class="price-tag">Best Deal</div>
+                  <ul>
+                      <li>Access to premium features</li>
+                      <li>Premium Role In Discord Server</li>
+                      <li>Priority support</li>
+                      <li>Sneak-Peaks To Unreleased Content</li>
+                  </ul>
+                  <button class="buy-now-button">Buy Now</button>
+              </div>
+          </div>
+
+
+          <div id="home-content" class="module-content">
+              <h2>Welcome to Your Dashboard Home</h2>
+              <p>This is the Home module of your Ence Dashboard. Here, you can customize and showcase important information or features tailored to your needs.</p>
+
+              <h3>Key Features:</h3>
+              <ul>
+                  <li>Quick access to essential tools</li>
+                  <li>Personalized widgets and information</li>
+                  <li>Customizable layout for your convenience</li>
+              </ul>
+
+              <h3>Upcoming Events:</h3>
+              <p>Stay tuned for exciting updates and events on your dashboard. We are constantly working to enhance your experience.</p>
+
+              <h3>Tips:</h3>
+              <p>Explore other modules in the sidebar for specific functionalities such as Premium, Moderation, and Modmail.</p>
+          </div>
+
+      <div id="moderation-commands" class="module-content">
+          <!-- Command Embeds -->
+          <div class="command-embed">
+              <h2>Ban Command</h2>
+              <p>Description: Ban a user from the server.</p>
+              <p>Usage: <code>!ban &lt;user&gt; &lt;reason&gt;</code></p>
+              <p>Example: <code>!ban @username Breaking server rules</code></p>
+          </div>
+
+          <div class="command-embed">
+              <h2>Kick Command</h2>
+              <p>Description: Kick a user from the server.</p>
+              <p>Usage: <code>!kick &lt;user&gt; &lt;reason&gt;</code></p>
+              <p>Example: <code>!kick @username Disruptive behavior</code></p>
+          </div>
+
+          <div class="command-embed">
+              <h2>Kick Command</h2>
+              <p>Description: Kick a user from the server.</p>
+              <p>Usage: <code>!kick &lt;user&gt; &lt;reason&gt;</code></p>
+              <p>Example: <code>!kick @username Disruptive behavior</code></p>
+          </div>
+
+          <!-- Add more command embeds as needed -->
+
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fetch commands from commands.json
+            fetch("commands.json")
+                .then(response => response.json())
+                .then(commands => displayCommands(commands))
+                .catch(error => console.error("Error fetching commands:", error));
+
+            function displayCommands(commands) {
+                const commandsContainer = document.getElementById("moderation-commands");
+
+                // Clear existing content
+                commandsContainer.innerHTML = "";
+
+                // Display each command
+                commands.forEach(command => {
+                    const commandEmbed = document.createElement("div");
+                    commandEmbed.className = "command-embed";
+                    commandEmbed.innerHTML = `
+                        <h2>${command.name}</h2>
+                        <p>Description: ${command.description}</p>
+                        <p>Usage: <code>${command.usage}</code></p>
+                        <p>Example: <code>${command.example}</code></p>
+                    `;
+                    commandsContainer.appendChild(commandEmbed);
+                });
+
+                // Show the commands container
+                commandsContainer.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>

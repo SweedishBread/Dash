@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Ban Command",
+        "description": "Ban a user from the server.",
+        "usage": "!ban <user> <reason>",
+        "example": "!ban @username Breaking server rules"
+    },
+    {
+        "name": "Kick Command",
+        "description": "Kick a user from the server.",
+        "usage": "!kick <user> <reason>",
+        "example": "!kick @username Disruptive behavior"
+    }
+]
